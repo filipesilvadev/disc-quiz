@@ -1,0 +1,21 @@
+#disc-quiz{
+  width: 100%;
+}
+
+#disc-quiz .question{
+  background: #cccccc;
+  width: 768px;
+  left: 50%;
+  margin-left: -384px;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+}
+
+#disc-quiz .question .answer-wrapper{
+  display: flex;
+}
+
+#disc-quiz .question.first-question{
+  display: flex;
+}

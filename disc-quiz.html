@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="disc-quiz.css">
+  <title>Disc Quiz</title>
+</head>
+<body>
+
+  <form id="disc-quiz">
+    <section class="question first-question" id="q0">
+      <p class="ask">1. Qual adjetivo te descreve melhor?</p>
+      <div class="answer-wrapper">
+        <input type="radio" name="answer-1" id="q1-a1" value="l">
+        <label for="q1-a1" class="ask">Determinado</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="answer-1" id="q1-a2" value="s">
+        <label for="q1-a2" class="ask">Atencioso</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="answer-1" id="q1-a3" value="f">
+        <label for="q1-a3" class="ask">Divertido</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="answer-1" id="q1-a4" value="g">
+        <label for="q1-a4" class="ask">Habilidoso</label>
+      </div>
+      <button>Próxima</button>
+    </section>
+
+    <section class="question" id="q1">
+      <p class="ask">2. Qual atitude te descreve melhor?</p>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-2" id="q2-a1" value="g">
+        <label for="q2-a1" class="ask">Ser mais observador.</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-2" id="q2-a2" value="f">
+        <label for="q2-a2" class="ask">Ser mais comunicativo.</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-2" id="q2-a3" value="l">
+        <label for="q2-a3" class="ask">Ser mais resiliente.</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-2" id="q2-a4" value="s">
+        <label for="q2-a4" class="ask">Ser mais bom ouvinte.</label>
+      </div>
+      <button>Próxima</button>
+    </section>
+
+    <section class="question" id="q2">
+      <p class="ask">3. Você é uma pessoa mais:</p>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a1" value="g">
+        <label for="q3-a1" class="ask">Organizada</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a2" value="l">
+        <label for="q3-a2" class="ask">Competitiva</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a3" value="f">
+        <label for="q3-a3" class="ask">Ousada</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a4" value="g">
+        <label for="q3-a4" class="ask">Comunicativa</label>
+      </div>
+      <button>Próxima</button>
+    </section>
+
+    <section class="question" id="q3">
+      <p class="ask">3. Você é uma pessoa mais:</p>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a1" value="g">
+        <label for="q3-a1" class="ask">Organizada</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a2" value="l">
+        <label for="q3-a2" class="ask">Competitiva</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a3" value="f">
+        <label for="q3-a3" class="ask">Ousada</label>
+      </div>
+      <div class="answer-wrapper">
+        <input type="radio" name="question-3" id="q3-a4" value="g">
+        <label for="q3-a4" class="ask">Comunicativa</label>
+      </div>
+      <button>Próxima</button>
+    </section>
+
+  </form>
+
+
+  <script>
+    const formButtons = document.querySelectorAll('#disc-quiz button');
+    let questions = document.querySelectorAll('#disc-quiz .question');
+    let ligado = 0;
+    let gradativo = 0;
+    let sensitivo = 0;
+    let livre = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+      const question = questions[i];
+      const nextQuestion = questions[i+1];
+      let formButton = formButtons[i];
+      
+      formButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        // const getAnswerValue = document.querySelector('#q' + i + ' input[type="radio"]:checked');
+        const getAnswerValue = document.querySelector(`#q${i} input[type="radio"]:checked`).value;
+        if (getAnswerValue == 'l') {
+          ligado += 5;
+        }else if(getAnswerValue == 'g'){
+          gradativo += 5;
+        }else if(getAnswerValue == 's'){
+          sensitivo += 5;
+        }else if(getAnswerValue == 'f'){
+          livre += 5;
+        }
+        question.style.display = "none";
+        nextQuestion.style.display = "flex";
+        console.log('______________________');
+        console.log('Ligado: '    +ligado);
+        console.log('Gradativo: ' +gradativo);
+        console.log('Sensitivo: ' +sensitivo);
+        console.log('Livre: '     +livre);
+        console.log('______________________');
+        
+      });
+    }
+
+
+
+    // for (let i = 0; i < formButtons.length; i++) {
+    //   let formButton = formButtons[i];
+    //     formButton.addEventListener("click", function (event) {
+    //       event.preventDefault();
+    //     });
+    // }
+
+  </script>
+</body>
+</html>
